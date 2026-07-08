@@ -10,9 +10,12 @@ jobs:
   release:
     name: Build & Release (${{ matrix.os }})
     strategy:
+      fail-fast: false
       matrix:
         os: [windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout Source Code
